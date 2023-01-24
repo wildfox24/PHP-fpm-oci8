@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         libxml2-dev \
         libaio1\
+    && rm -f /var/lib/apt/lists/*. \
     && pecl install mcrypt-1.0.5  \
     && docker-php-ext-install -j$(nproc) iconv mbstring mysqli pgsql pdo_mysql pdo_pgsql zip soap \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
